@@ -51,3 +51,7 @@ void UBaseDataQueryComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	// ...
 }
 
+void UBaseDataQueryComponent::OnDataUpdated_Implementation()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Error, calling UBaseDataQueryComponent::OnDataUpdated_Implementation function, implement your own!!"));
+}

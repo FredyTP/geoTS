@@ -9,7 +9,7 @@
 #include "BaseDataQueryComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom), Blueprintable, meta=(BlueprintSpawnableComponent) )
 class GEOTS_API UBaseDataQueryComponent : public USceneComponent
 {
 	GENERATED_BODY()
@@ -27,6 +27,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	
-	virtual void OnDataUpdated() {}
+	UFUNCTION(BlueprintNativeEvent)
+		void OnDataUpdated();
 		
 };

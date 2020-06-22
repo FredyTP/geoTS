@@ -26,7 +26,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	virtual void OnDataUpdated() override;
+	void OnDataUpdated();
 
 	UPROPERTY(EditAnywhere)
 		FRotator Rotation0;
