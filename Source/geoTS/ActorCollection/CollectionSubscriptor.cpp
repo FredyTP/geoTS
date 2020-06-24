@@ -12,16 +12,11 @@ UCollectionSubscriptor::UCollectionSubscriptor()
 	PrimaryComponentTick.bCanEverTick = false;
 	_collection = nullptr;
 	bSubscripted = false;
-	CollectionTag = CollectionTagInit;
 	
 	// ...
 }
 
 
-UCollectionSubscriptor::~UCollectionSubscriptor()
-{
-
-}
 
 // Called when the game starts
 void UCollectionSubscriptor::BeginPlay()
@@ -55,6 +50,10 @@ void UCollectionSubscriptor::Subscript(FString tag)
 				{
 					_collection = Cast<AActorCollection>(found[0]);
 
+				}
+				else
+				{
+					UE_LOG(LogTemp, Warning, TEXT("UCollectionSubscriptor::Subscript, error Can't find ActorCollection"));
 				}
 			}
 		}

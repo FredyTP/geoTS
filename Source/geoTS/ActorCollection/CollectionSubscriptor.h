@@ -16,8 +16,7 @@ class GEOTS_API UCollectionSubscriptor : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UCollectionSubscriptor();
-	
-	~UCollectionSubscriptor();
+
 
 protected:
 	// Called when the game starts
@@ -29,12 +28,13 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		FString CollectionTag;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FString CollectionTagInit;
+
 	UFUNCTION(BlueprintCallable)
 		void Subscript(FString tag);
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		bool bSubscripted;
 
 	UPROPERTY(BlueprintReadOnly)
