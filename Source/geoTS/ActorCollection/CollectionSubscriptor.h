@@ -8,7 +8,7 @@
 #include "CollectionSubscriptor.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom),Blueprintable, meta=(BlueprintSpawnableComponent) )
 class GEOTS_API UCollectionSubscriptor : public UActorComponent
 {
 	GENERATED_BODY()
@@ -16,18 +16,28 @@ class GEOTS_API UCollectionSubscriptor : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UCollectionSubscriptor();
+	
+	~UCollectionSubscriptor();
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
-	FString CollectionTag;
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString CollectionTagInit;
 
-	AActorCollection* _collection;
+	UPROPERTY(BlueprintReadWrite)
+		FString CollectionTag;
+
+	UPROPERTY(EditAnywhere)
+		FString CollectionTagInit;
+	UFUNCTION(BlueprintCallable)
+		void Subscript(FString tag);
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
+		bool bSubscripted;
+
+	UPROPERTY(BlueprintReadOnly)
+		AActorCollection* _collection;
 		
 };

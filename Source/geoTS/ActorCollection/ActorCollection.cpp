@@ -30,15 +30,22 @@ void AActorCollection::SubscriptActor(AActor* toSuscript, FString CollectionTag)
 	if (!_actorCollection.Contains(CollectionTag))
 	{
 		_actorCollection.Add(CollectionTag);
+		_tagCollection.Add(CollectionTag);
 	}
 	_actorCollection[CollectionTag].AddUnique(toSuscript);
 }
 
-void AActorCollection::UnSubscriptActor(AActor* toUnSuscript, FString CollectionTag)
+void AActorCollection::UnSubscriptActor(AActor* toUnSubscript, FString CollectionTag)
 {
 	if (_actorCollection.Contains(CollectionTag))
 	{
-		_actorCollection[CollectionTag].Remove(toUnSuscript);
+		_actorCollection[CollectionTag].Remove(toUnSubscript);
+
+		if (_actorCollection[CollectionTag].Num() == 0)
+		{
+			_tagCollection.Remove(CollectionTag);
+		}
+
 	}
 	else
 	{
@@ -46,6 +53,19 @@ void AActorCollection::UnSubscriptActor(AActor* toUnSuscript, FString Collection
 	}
 	
 	
+}
+void AActorCollection::UnSubscriptActor_All(AActor* toUnSubscript)
+{
+	for (auto &list : _actorCollection)
+	{
+		list.Value.Remove(toUnSubscript);
+
+		if (list.Value.Num()==0)
+		{
+			_tagCollection.Remove(list.Key);
+		}
+		
+	}
 }
 void AActorCollection::setCollectionVisibility(bool v, FString CollectionTag)
 {
@@ -63,4 +83,15 @@ void AActorCollection::setCollectionVisibility(bool v, FString CollectionTag)
 	}
 
 
+}
+
+void AActorCollection::setCollectionVisibility_All(bool v)
+{
+	for (auto& list : _actorCollection)
+	{
+		for (auto& a :list.Value)
+		{
+			a->SetActorHiddenInGame(!v);
+		}
+	}
 }
