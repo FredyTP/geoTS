@@ -26,10 +26,23 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void SubscriptActor(AActor* toSuscript, FString CollectionTag);
 	UFUNCTION(BlueprintCallable)
-		void UnSubscriptActor(AActor* toUnSuscript, FString CollectionTag);
+		void UnSubscriptActor(AActor* toUnSubscript, FString CollectionTag);
+
+	UFUNCTION(BlueprintCallable)
+		void UnSubscriptActor_All(AActor* toUnSubscript);
 
 	UFUNCTION(BlueprintCallable)
 		void setCollectionVisibility(bool v,FString CollectionTag);
 
+	UFUNCTION(BlueprintCallable)
+		void setCollectionVisibility_All(bool v);
+
+	UPROPERTY(VisibleAnywhere)
+		TArray<FString> _tagCollection;
+
 	TMap<FString,TArray<AActor*>> _actorCollection;
+
+	//JUST TO UPDATE THE OBJECT
+	UPROPERTY(EditAnywhere)
+		bool bUpdate;
 };
