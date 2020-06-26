@@ -40,4 +40,5 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 		AActorCollection* _collection;
 		
+
 };
