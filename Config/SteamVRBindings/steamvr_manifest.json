@@ -86,6 +86,10 @@
 			"type": "boolean"
 		},
 		{
+			"name": "/actions/main/in/Motion Controller R Menu",
+			"type": "boolean"
+		},
+		{
 			"name": "/actions/main/in/MotionController R Trigger axis",
 			"type": "vector1"
 		}
@@ -206,6 +210,7 @@
 			"/actions/main/in/open_console": "Open Console",
 			"/actions/main/in/Motion Controller R Trackpad": "Motion Controller R Trackpad",
 			"/actions/main/in/Motion Controller R Trackpad Up": "Motion Controller R Trackpad Up",
+			"/actions/main/in/Motion Controller R Menu": "Motion Controller R Menu",
 			"/actions/main/in/MotionController R Trigger axis": "MotionController R Trigger",
 			"/actions/main": "Main Game Actions"
 		}
