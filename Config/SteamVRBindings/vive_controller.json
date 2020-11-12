@@ -34,17 +34,6 @@
 					}
 				},
 				{
-					"mode": "button",
-					"path": "/user/hand/right/input/application_menu",
-					"inputs":
-					{
-						"click":
-						{
-							"output": "/actions/main/in/Motion Controller R Menu"
-						}
-					}
-				},
-				{
 					"mode": "trigger",
 					"path": "/user/hand/right/input/trigger",
 					"inputs":
